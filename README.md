@@ -1,30 +1,17 @@
-# 🐣 Rollup boilerplate (React, Typescript)
+# React Router Guards
 
-Boilerplate for development and publishing modern React NPM packages or UI-kit modules with Rollup and Typescript.  
-Clean and powerfull. Good to fork in your project, learning and development.
+React Router Guards provides a middleware API for React Router, allowing you to perform complex logic between the call for navigation and the final render of a route.
 
-It's just work.
+## Routing example
 
-## Usage
+## Names
 
-`yarn build` builds the application to `dist/`  
-`yarn lint` check for errors `src/**.ts`
-
-## Rollup features
-
-✅ Bundles CJS and ES module formats  
-✅ Compression by Terser  
-✅ Aliases  
-✅ Sourcemaps
-
-## Boilerplate features
-
-✅ ESLint plugins: Recommended, Typescript Recommended, React, Requiring Types  
-✅ Prettier  
-✅ No TSLint because he's dead
+guards-react-router
+guards-middleware
+router-guards-middleware
+react-router-config-guards-middleware
 
 ## TODO
 
 - [ ] Add publishing features
-- [ ] Add Badges: CI
-- [ ] Add integration with Storybook-boilerplate
+- [ ] Global exact prop
