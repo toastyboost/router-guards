@@ -15,3 +15,4 @@ react-router-config-guards-middleware
 
 - [ ] Add publishing features
 - [ ] Global exact prop
+- [ ] First guards then routes
