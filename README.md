@@ -1,4 +1,4 @@
-# React Router Guards
+# 👮‍♂️ Role Based Access Control with guards for React-Router
 
 React Router Guards provides a middleware API for React Router, allowing you to perform complex logic between the call for navigation and the final render of a route.
 
@@ -7,7 +7,7 @@ React Router Guards provides a middleware API for React Router, allowing you to 
 ## Features
 
 - [x] Guards
-- [x] Working with react-router configs (Array, Object)
+- [x] Working with configs (Array, Object)
 
 ## Names
 
@@ -19,5 +19,6 @@ react-router-config-guards-middleware
 ## TODO
 
 - [ ] Add sub routes
+- [ ] Add storybook deploy
 - [ ] Add publishing features
 - [ ] Global exact prop

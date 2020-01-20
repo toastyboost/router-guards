@@ -2,7 +2,7 @@ import { RouteComponentProps } from 'react-router';
 
 export type Route<Ctx> = SimpleRoute<Ctx> | NestedRoute<Ctx>;
 
-export type SimpleRoute<Ctx> = {
+type SimpleRoute<Ctx> = {
   name?: string;
   path?: string;
   exact?: boolean;
@@ -10,7 +10,7 @@ export type SimpleRoute<Ctx> = {
   guards?: Guard<Ctx>[];
 };
 
-export type NestedRoute<Ctx> = {
+type NestedRoute<Ctx> = {
   exact?: boolean;
   component: React.ComponentType<RouteComponentProps>;
   routes: Route<Ctx>[];
@@ -45,7 +45,7 @@ type ObjectRoutes<Ctx> = {
   [key: string]: Route<Ctx>;
 };
 
-export const toArray = <Ctx>(config: ObjectRoutes<Ctx>): Route<Ctx>[] => {
+const toArray = <Ctx>(config: ObjectRoutes<Ctx>): Route<Ctx>[] => {
   return Object.keys(config).reduce<Route<Ctx>[]>((routesList, name) => {
     routesList.push({ ...config[name], name });
     return routesList;
