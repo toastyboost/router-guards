@@ -1,4 +1,4 @@
-# 👮‍♂️ Role Based Access Control with guards for React-Router
+# 👮‍♂️ Guards RBAC middleware for React Router
 
 React Router Guards provides a middleware API for React Router, allowing you to perform complex logic between the call for navigation and the final render of a route.
 
