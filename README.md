@@ -18,8 +18,12 @@ react-router-config-guards-middleware
 
 ## TODO
 
+- [ ] Add tests
 - [ ] Add sub routes
-- [ ] Add storybook deploy
 - [ ] Add publishing features
 - [ ] Global exact prop
 - [ ] Add gif example
+
+- [x] Add storybook deploy
+- [x] Build typings
+- [x] Template transfered to config

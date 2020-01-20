@@ -1,5 +1,4 @@
 import * as React from 'react';
-import 'antd/dist/antd.css';
 
 import { configure, addDecorator, addParameters } from '@storybook/react';
 
@@ -11,7 +10,8 @@ import { themes } from '@storybook/theming';
 
 import StoryRouter from 'storybook-react-router';
 
-import { GlobalStyle } from '../src/ui/styles/default';
+import { Styles } from './template/styles';
+import { GenericTemplate } from './template';
 
 addParameters({
   options: {
@@ -25,8 +25,8 @@ addParameters({
 
 addDecorator((story) => (
   <>
-    <GlobalStyle />
-    {story()}
+    <Styles />
+    <GenericTemplate children={story()} />
   </>
 ));
 

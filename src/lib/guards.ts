@@ -1,4 +1,4 @@
-import { Guard } from '../middleware';
+import { Guard } from '../';
 
 type Roles = 'admin' | 'client' | 'user';
 

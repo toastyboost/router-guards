@@ -2,7 +2,6 @@
   "compilerOptions": {
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
@@ -11,18 +10,21 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "rootDirs": ["src", "stories"],
-    "outDir": "./dist",
     "skipLibCheck": true,
     "strict": true,
     "target": "es6",
     "strictNullChecks": false,
+    "baseUrl": "./",
     "typeRoots": ["./node_modules/@types"],
+    "declaration": true,
+    "declarationDir": "./dist",
+    "outDir": "./dist",
+    "rootDirs": ["src", "stories"],
     "paths": {
-      "~/": ["./src/"],
-      "~/lib": ["./src/lib/"]
+      "@root/*": ["src/*"],
+      "@lib/*": ["src/lib/*"]
     }
   },
   "exclude": ["./node_modules", "./dist"],
-  "include": ["src"]
+  "include": ["./src/index.ts"]
 }

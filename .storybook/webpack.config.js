@@ -3,8 +3,8 @@ const path = require('path');
 module.exports = ({ config }) => {
   config.resolve.alias = {
     ...config.resolve.alias,
-    '~/': path.resolve(__dirname, '../src/'),
-    '~/lib': path.resolve(__dirname, '../src/lib'),
+    '@lib': path.resolve(__dirname, '../src/lib'),
+    '@root': path.resolve(__dirname, '../src'),
   };
 
   config.module.rules.push({

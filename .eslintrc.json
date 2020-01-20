@@ -15,7 +15,7 @@
   "parserOptions": {
     "project": "tsconfig.json",
     "createDefaultProgram": true,
-    "tsconfigRootDir": "."
+    "tsconfigRootDir": "./"
   },
   "plugins": ["react", "@typescript-eslint"],
   "settings": {

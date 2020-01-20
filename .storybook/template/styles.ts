@@ -1,6 +1,8 @@
 import { createGlobalStyle, css } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
+import 'antd/dist/antd.css';
+
 const globals = css`
   :root {
     --text-color: rgba(0, 0, 0, 0.85);
@@ -115,7 +117,7 @@ const globals = css`
   }
 `;
 
-export const GlobalStyle = createGlobalStyle`
+export const Styles = createGlobalStyle`
   ${normalize}
   ${globals}
 `;
