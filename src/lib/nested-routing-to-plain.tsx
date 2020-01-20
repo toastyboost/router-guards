@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Route, SimpleRoute } from './routes';
+import { RouteProps, SimpleRoute } from './routes';
 
-export function toPlain<C>(config: Route<C>[]): Route<C>[] {
+export function toPlain<C>(config: RouteProps<C>[]): RouteProps<C>[] {
   const plainConfig: SimpleRoute<C>[] = [];
 
   for (const route of config) {

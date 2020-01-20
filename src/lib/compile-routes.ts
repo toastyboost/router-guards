@@ -1,10 +1,13 @@
-import { Route } from './routes';
+import { RouteProps } from './routes';
 
-function applyGuards<C>(route: Route<C>, context: C): Route<C> | null {
+function applyGuards<C>(
+  route: RouteProps<C>,
+  context: C,
+): RouteProps<C> | null {
   const { guards } = route;
 
   if (guards) {
-    let currentRoute: Route<C> | null | undefined = route;
+    let currentRoute: RouteProps<C> | null | undefined = route;
 
     for (const guard of guards) {
       if (currentRoute === undefined) return null;
@@ -17,10 +20,13 @@ function applyGuards<C>(route: Route<C>, context: C): Route<C> | null {
   return null;
 }
 
-function notNull<C>(t: Route<C> | null): t is Route<C> {
+function notNull<C>(t: RouteProps<C> | null): t is RouteProps<C> {
   return Boolean(t);
 }
 
-export function compileRoutes<C>(config: Route<C>[], context: C): Route<C>[] {
+export function compileRoutes<C>(
+  config: RouteProps<C>[],
+  context: C,
+): RouteProps<C>[] {
   return config.map((route) => applyGuards(route, context)).filter(notNull);
 }

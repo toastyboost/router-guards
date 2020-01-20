@@ -18,7 +18,8 @@
     "target": "es6",
     "typeRoots": ["./node_modules/@types"],
     "paths": {
-      "~/": ["./src/"]
+      "~/": ["./src/"],
+      "~/lib": ["./src/lib/"]
     }
   },
   "exclude": ["./node_modules", "./dist"],

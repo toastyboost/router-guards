@@ -1,4 +1,4 @@
-import { Route } from './routes';
+import { RouteProps } from './routes';
 
 export type Roles = 'admin' | 'editor' | 'user';
 
@@ -7,9 +7,9 @@ export type UserRole = {
 };
 
 export type Guard<C> = (
-  route: Route<C> | null,
+  route: RouteProps<C> | null,
   context: C,
-) => Route<C> | null | undefined;
+) => RouteProps<C> | null | undefined;
 
 export function onlyAnon(): Guard<UserRole> {
   return (route, context) => (context && context.role ? null : route);

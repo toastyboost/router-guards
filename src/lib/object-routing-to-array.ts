@@ -1,11 +1,11 @@
-import { Route } from './routes';
+import { RouteProps } from './routes';
 
 type ObjectConfig<C> = {
-  [key: string]: Route<C>;
+  [key: string]: RouteProps<C>;
 };
 
-export function toArray<C>(config: ObjectConfig<C>): Route<C>[] {
-  return Object.keys(config).reduce<Route<C>[]>((routesList, name) => {
+export function toArray<C>(config: ObjectConfig<C>): RouteProps<C>[] {
+  return Object.keys(config).reduce<RouteProps<C>[]>((routesList, name) => {
     routesList.push({ ...config[name], name });
     return routesList;
   }, []);
