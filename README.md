@@ -7,7 +7,7 @@ Guards provides a middleware for React Router, allowing you to perform complex l
 ## Features
 
 - [x] Guards (RBAC)
-- [x] Working with configs (Array, Object)
+- [x] Render configs (Array, Object)
 
 ## Names
 
@@ -21,9 +21,11 @@ react-router-config-guards-middleware
 - [ ] Add tests
 - [ ] Add sub routes
 - [ ] Add publishing features
-- [ ] Global exact prop
 - [ ] Add gif example
+- [ ] Default path
+- [ ] Add app design
 
 - [x] Add storybook deploy
 - [x] Build typings
-- [x] Template transfered to config
+- [x] Website layout
+- [x] Global exact prop

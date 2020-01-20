@@ -1,6 +1,6 @@
 import { RouteComponentProps } from 'react-router';
 
-export type Route<Ctx> = SimpleRoute<Ctx> | NestedRoute<Ctx>;
+export type Route<Ctx> = SimpleRoute<Ctx>;
 
 type SimpleRoute<Ctx> = {
   name?: string;
@@ -64,5 +64,11 @@ export const compileRoutes = <Ctx>(
 
   return routes
     .map((route) => compileGuard(route, context))
-    .filter((item) => Boolean(item));
+    .filter((item) => Boolean(item))
+    .map((route) => ({
+      name: route.name,
+      path: route.path,
+      component: route.component,
+      exact: true,
+    }));
 };
