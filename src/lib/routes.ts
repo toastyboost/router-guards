@@ -1,44 +1,30 @@
-import { Guard, onlyAnon, onlyUsers, onlyFor } from './guards';
-import { RouteComponentProps } from 'react-router';
+import { onlyAnon, onlyUsers, onlyFor } from './guards';
 import { MainPage, ClientPage, LoginPage, AdminPage } from './pages';
-
-export type SimpleRoute<C> = {
-  name?: string;
-  path?: string;
-  exact?: boolean;
-  component: React.ComponentType<RouteComponentProps>;
-  guards?: Guard<C>[];
-};
-
-type NestedRoute<C> = {
-  name?: string;
-  routes: RouteProps<C>[];
-  component: React.ComponentType<RouteComponentProps>;
-  guards?: Guard<C>[];
-};
-
-export type RouteProps<C> = SimpleRoute<C> | NestedRoute<C>;
 
 export const ROUTES_ARRAY = [
   {
+    name: 'Main',
     path: '/',
     exact: true,
     component: MainPage,
     guards: [onlyAnon()],
   },
   {
+    name: 'Login',
     path: '/login',
     exact: true,
     component: LoginPage,
     guards: [onlyAnon()],
   },
   {
+    name: 'Clients',
     path: '/clients',
     exact: true,
     component: ClientPage,
-    guards: [onlyUsers()],
+    guards: [onlyUsers(), onlyFor(['client'])],
   },
   {
+    name: 'Admin',
     path: '/admin',
     exact: true,
     component: AdminPage,
@@ -63,7 +49,7 @@ export const ROUTES_OBJECT = {
     path: '/clients',
     exact: true,
     component: ClientPage,
-    guards: [onlyUsers()],
+    guards: [onlyUsers(), onlyFor(['client'])],
   },
   admin: {
     path: '/admin',

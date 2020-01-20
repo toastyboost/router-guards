@@ -12,10 +12,10 @@ export const Nav = ({ routes }: NavProps) => {
   return (
     <Menu mode="horizontal">
       {routes.map(
-        ({ path }) =>
+        ({ path, name }) =>
           path && (
             <Menu.Item key={path}>
-              <Link to={path}>{path}</Link>
+              <Link to={path}>{name}</Link>
             </Menu.Item>
           ),
       )}

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Switch, Route, RouteComponentProps } from 'react-router';
 
 export type RouteProps = {

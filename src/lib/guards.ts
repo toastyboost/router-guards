@@ -1,25 +1,20 @@
-import { RouteProps } from './routes';
+import { Guard } from '../middleware';
 
-export type Roles = 'admin' | 'editor' | 'user';
+type Roles = 'admin' | 'client' | 'user';
 
-export type UserRole = {
+type SessionProps = {
   role: Roles | null;
 };
 
-export type Guard<C> = (
-  route: RouteProps<C> | null,
-  context: C,
-) => RouteProps<C> | null | undefined;
-
-export function onlyAnon(): Guard<UserRole> {
+export function onlyAnon(): Guard<SessionProps> {
   return (route, context) => (context && context.role ? null : route);
 }
 
-export function onlyUsers(): Guard<UserRole> {
+export function onlyUsers(): Guard<SessionProps> {
   return (route, context) => (context && context.role ? route : null);
 }
 
-export function onlyFor(roles: Roles[]): Guard<UserRole> {
+export function onlyFor(roles: Roles[]): Guard<SessionProps> {
   return (route, context) =>
     context && context.role && roles.includes(context.role) ? route : null;
 }

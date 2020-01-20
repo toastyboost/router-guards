@@ -16,6 +16,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es6",
+    "strictNullChecks": false,
     "typeRoots": ["./node_modules/@types"],
     "paths": {
       "~/": ["./src/"],

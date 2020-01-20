@@ -12,6 +12,7 @@ import { themes } from '@storybook/theming';
 import StoryRouter from 'storybook-react-router';
 
 import { GlobalStyle } from '../src/ui/styles/default';
+
 addParameters({
   options: {
     showPanel: true,
