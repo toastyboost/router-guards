@@ -1,8 +1,6 @@
-# 👮‍♂️ Guards RBAC middleware for React Router
+# 👮‍♂️ RBAC Guards middleware for React Router
 
-React Router Guards provides a middleware API for React Router, allowing you to perform complex logic between the call for navigation and the final render of a route.
-
-## Routing example
+Guards provides a middleware for React Router, allowing you to perform complex logic between the call for navigation and the final render of a route.
 
 ## Features
 
@@ -11,9 +9,9 @@ React Router Guards provides a middleware API for React Router, allowing you to 
 
 ## Names
 
-guards-react-router
-guards-middleware
-router-guards-middleware
+guards-react-router  
+guards-middleware  
+router-guards-middleware  
 react-router-config-guards-middleware
 
 ## TODO
@@ -22,3 +20,4 @@ react-router-config-guards-middleware
 - [ ] Add storybook deploy
 - [ ] Add publishing features
 - [ ] Global exact prop
+- [ ] Add gif example
