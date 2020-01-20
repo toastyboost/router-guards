@@ -15,3 +15,7 @@ export const LoginPage = () => {
 export const AdminPage = () => {
   return <>Admin Page</>;
 };
+
+export const NotFound = () => {
+  return <>404</>;
+};

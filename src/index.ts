@@ -38,6 +38,7 @@ export const compileGuard = <Ctx>(
 
     return currentRoute || null;
   }
+
   return null;
 };
 
@@ -47,7 +48,10 @@ type ObjectRoutes<Ctx> = {
 
 const toArray = <Ctx>(config: ObjectRoutes<Ctx>): Route<Ctx>[] => {
   return Object.keys(config).reduce<Route<Ctx>[]>((routesList, name) => {
-    routesList.push({ ...config[name], name });
+    routesList.push({
+      ...config[name],
+      name,
+    });
     return routesList;
   }, []);
 };
@@ -57,7 +61,7 @@ export const compileRoutes = <Ctx>(
   context: Ctx,
 ): Route<Ctx>[] => {
   const routes = Array.isArray(config) ? config : toArray<Ctx>(config);
-
+  console.log('object', routes);
   return routes
     .map((route) => compileGuard(route, context))
     .filter((item) => Boolean(item));
