@@ -10,8 +10,8 @@ import { themes } from '@storybook/theming';
 
 import StoryRouter from 'storybook-react-router';
 
-import { Styles } from './template/styles';
-import { GenericTemplate } from './template';
+import { Styles } from './layout/styles';
+import { GenericTemplate } from './layout/template';
 
 addParameters({
   options: {
