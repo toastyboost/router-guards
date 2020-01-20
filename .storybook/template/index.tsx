@@ -46,8 +46,8 @@ type GenericTemplateProps = {
 export const GenericTemplate = ({ children }: GenericTemplateProps) => {
   return (
     <Router history={history}>
+      <Nav children={children} />
       <Layout>
-        <Nav children={children} />
         <Switch>
           {children.map((route, key) => (
             <Route key={key} {...route} />

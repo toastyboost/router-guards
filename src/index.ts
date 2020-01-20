@@ -61,7 +61,7 @@ export const compileRoutes = <Ctx>(
   context: Ctx,
 ): Route<Ctx>[] => {
   const routes = Array.isArray(config) ? config : toArray<Ctx>(config);
-  console.log('object', routes);
+
   return routes
     .map((route) => compileGuard(route, context))
     .filter((item) => Boolean(item));

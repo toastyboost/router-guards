@@ -26,11 +26,11 @@ export const ROUTES_ARRAY = [
     component: AdminPage,
     guards: [onlyUsers(), onlyFor(['admin'])],
   },
-  {
-    name: '404',
-    path: '*',
-    component: NotFound,
-  },
+  // {
+  //   name: '404',
+  //   path: '*',
+  //   component: NotFound,
+  // },
 ];
 
 export const ROUTES_OBJECT = {
@@ -54,8 +54,8 @@ export const ROUTES_OBJECT = {
     component: AdminPage,
     guards: [onlyUsers(), onlyFor(['admin'])],
   },
-  '404': {
-    path: '*',
-    component: NotFound,
-  },
+  // '404': {
+  //   path: '*',
+  //   component: NotFound,
+  // },
 };

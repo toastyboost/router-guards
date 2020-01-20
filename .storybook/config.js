@@ -30,13 +30,13 @@ addDecorator((story) => (
   </>
 ));
 
+addDecorator(StoryRouter());
 configureActions({
   depth: 20,
   limit: 5,
 });
 
 addDecorator(withKnobs);
-addDecorator(StoryRouter());
 
 addDecorator((story, context) => withConsole()(story)(context));
 
