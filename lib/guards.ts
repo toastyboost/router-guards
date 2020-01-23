@@ -1,4 +1,4 @@
-import { Guard } from '../';
+import { Guard } from '../src';
 
 type Roles = 'admin' | 'client' | 'user';
 

@@ -1,4 +1,4 @@
-import { ROUTES_ARRAY } from '../src/lib/routes';
+import { ROUTES_ARRAY } from '../lib/routes';
 
 export default { title: 'Routes' };
 

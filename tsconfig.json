@@ -22,9 +22,9 @@
     "rootDirs": ["src", "stories"],
     "paths": {
       "@root/*": ["src/*"],
-      "@lib/*": ["src/lib/*"]
+      "@lib/*": ["lib/*"]
     }
   },
   "exclude": ["./node_modules", "./dist"],
-  "include": ["./src/index.ts"]
+  "include": ["./src"]
 }

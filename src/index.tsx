@@ -1,6 +1,7 @@
+import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 
-export type Route<Ctx> = SimpleRoute<Ctx>;
+export type Route<Ctx> = SimpleRoute<Ctx> | NestedRoute<Ctx>;
 
 type SimpleRoute<Ctx> = {
   name?: string;
@@ -11,6 +12,8 @@ type SimpleRoute<Ctx> = {
 };
 
 type NestedRoute<Ctx> = {
+  name?: string;
+  path?: string;
   exact?: boolean;
   component: React.ComponentType<RouteComponentProps>;
   routes: Route<Ctx>[];
@@ -22,10 +25,10 @@ export type Guard<Ctx> = (
   context: Ctx,
 ) => Route<Ctx> | null | undefined;
 
-export const compileGuard = <Ctx>(
+export function compileGuard<Ctx>(
   route: Route<Ctx>,
   context: Ctx,
-): Route<Ctx> | null => {
+): Route<Ctx> | null {
   const { guards } = route;
 
   if (guards) {
@@ -39,14 +42,14 @@ export const compileGuard = <Ctx>(
     return currentRoute || null;
   }
 
-  return null;
-};
+  return route;
+}
 
 type ObjectRoutes<Ctx> = {
   [key: string]: Route<Ctx>;
 };
 
-const toArray = <Ctx>(config: ObjectRoutes<Ctx>): Route<Ctx>[] => {
+function toArray<Ctx>(config: ObjectRoutes<Ctx>): Route<Ctx>[] {
   return Object.keys(config).reduce<Route<Ctx>[]>((routesList, name) => {
     routesList.push({
       ...config[name],
@@ -54,13 +57,39 @@ const toArray = <Ctx>(config: ObjectRoutes<Ctx>): Route<Ctx>[] => {
     });
     return routesList;
   }, []);
-};
+}
 
-export const compileRoutes = <Ctx>(
+function compileSubroute<C>(config: Route<C>[]): Route<C>[] {
+  const plainConfig: SimpleRoute<C>[] = [];
+
+  for (const route of config) {
+    if ('routes' in route) {
+      const subRoutes = compileSubroute(route.routes);
+
+      for (const subRoute of subRoutes) {
+        plainConfig.push({
+          ...subRoute,
+          component: (properties) => (
+            <route.component {...properties}>
+              <subRoute.component {...properties} />
+            </route.component>
+          ),
+        });
+      }
+    } else {
+      plainConfig.push(route);
+    }
+  }
+
+  return plainConfig;
+}
+
+export function renderRoutes<Ctx>(
   config: Route<Ctx>[] | ObjectRoutes<Ctx>,
   context: Ctx,
-): Route<Ctx>[] => {
-  const routes = Array.isArray(config) ? config : toArray<Ctx>(config);
+): Route<Ctx>[] {
+  const plainRoutes = Array.isArray(config) ? config : toArray<Ctx>(config);
+  const routes = compileSubroute(plainRoutes);
 
   return routes
     .map((route) => compileGuard(route, context))
@@ -71,4 +100,4 @@ export const compileRoutes = <Ctx>(
       component: route.component,
       exact: true,
     }));
-};
+}

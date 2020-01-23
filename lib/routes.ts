@@ -1,5 +1,14 @@
 import { onlyAnon, onlyUsers, onlyFor } from './guards';
-import { MainPage, ClientPage, LoginPage, AdminPage, NotFound } from './pages';
+
+import {
+  MainPage,
+  ClientPage,
+  LoginPage,
+  AdminPage,
+  UsersPage,
+  SettingsPage,
+  NotFound,
+} from './pages';
 
 export const ROUTES_ARRAY = [
   {
@@ -27,7 +36,7 @@ export const ROUTES_ARRAY = [
     guards: [onlyUsers(), onlyFor(['admin'])],
   },
   {
-    name: '404',
+    name: 'NotFound',
     path: '*',
     component: NotFound,
   },
@@ -54,7 +63,47 @@ export const ROUTES_OBJECT = {
     component: AdminPage,
     guards: [onlyUsers(), onlyFor(['admin'])],
   },
-  '404': {
+  notFound: {
+    path: '*',
+    component: NotFound,
+  },
+};
+
+export const ROUTES_OBJECT_NESTED = {
+  main: {
+    path: '/',
+    component: MainPage,
+    guards: [onlyAnon()],
+  },
+  login: {
+    path: '/login',
+    component: LoginPage,
+    guards: [onlyAnon()],
+  },
+  client: {
+    path: '/clients',
+    component: ClientPage,
+    guards: [onlyUsers(), onlyFor(['client'])],
+  },
+  admin: {
+    component: AdminPage,
+    guards: [onlyUsers(), onlyFor(['admin'])],
+    routes: [
+      {
+        name: 'Users',
+        path: '/users',
+        component: UsersPage,
+        guards: [onlyUsers(), onlyFor(['admin'])],
+      },
+      {
+        name: 'Settings',
+        path: '/setting',
+        component: SettingsPage,
+        guards: [onlyUsers(), onlyFor(['admin'])],
+      },
+    ],
+  },
+  notFound: {
     path: '*',
     component: NotFound,
   },
