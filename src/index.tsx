@@ -53,7 +53,7 @@ function toArray<Ctx>(config: ObjectRoutes<Ctx>): Route<Ctx>[] {
   return Object.keys(config).reduce<Route<Ctx>[]>((routesList, name) => {
     routesList.push({
       ...config[name],
-      name,
+      name: name,
     });
     return routesList;
   }, []);
@@ -67,8 +67,10 @@ function compileSubroute<C>(config: Route<C>[]): Route<C>[] {
       const subRoutes = compileSubroute(route.routes);
 
       for (const subRoute of subRoutes) {
+        console.log('subRoute', subRoute);
         plainConfig.push({
           ...subRoute,
+          name: subRoute.name || subRoute.component.name,
           component: (properties) => (
             <route.component {...properties}>
               <subRoute.component {...properties} />
@@ -95,7 +97,7 @@ export function renderRoutes<Ctx>(
     .map((route) => compileGuard(route, context))
     .filter((item) => Boolean(item))
     .map((route) => ({
-      name: route.name,
+      name: route.name || route.component.name,
       path: route.path,
       component: route.component,
       exact: true,

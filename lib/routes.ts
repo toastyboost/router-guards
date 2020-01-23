@@ -18,7 +18,6 @@ export const ROUTES_ARRAY = [
     guards: [onlyAnon()],
   },
   {
-    name: 'Login',
     path: '/login',
     component: LoginPage,
     guards: [onlyAnon()],
@@ -90,13 +89,11 @@ export const ROUTES_OBJECT_NESTED = {
     guards: [onlyUsers(), onlyFor(['admin'])],
     routes: [
       {
-        name: 'Users',
         path: '/users',
         component: UsersPage,
         guards: [onlyUsers(), onlyFor(['admin'])],
       },
       {
-        name: 'Settings',
         path: '/setting',
         component: SettingsPage,
         guards: [onlyUsers(), onlyFor(['admin'])],

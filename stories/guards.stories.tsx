@@ -26,7 +26,7 @@ export const withObjectConfig = () => {
 
 export const withObjectNesterConfig = () => {
   const role = select('Role', ['admin', 'client', null], 'admin');
-
   const currentRoutes = renderRoutes(ROUTES_OBJECT_NESTED, { role });
+
   return currentRoutes;
 };
