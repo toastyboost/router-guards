@@ -1,6 +1,6 @@
 # 🚥 Guards realization for RBAC in react-router
 
-Package provides methods that allowing you to perform complex logic (RBAC) between 
+Package provides methods that allowing you to perform complex logic (RBAC) between  
 the call for navigation and the final render of a routes.
 
 [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://toastyboost.github.io/router-guards/)
@@ -55,12 +55,10 @@ type SessionProps = {
   role: 'admin' | null;
 };
 
-// if role dosen't exist
 export function onlyAnon(): Guard<SessionProps> {
   return (route, context) => (context && context.role ? null : route);
 }
 
-// if role exist
 export function onlyUsers(): Guard<SessionProps> {
   return (route, context) => (context && context.role ? route : null);
 }
@@ -75,7 +73,7 @@ export function onlyUsers(): Guard<SessionProps> {
 
 ## Attantion
 
-В роутинге важен порядок роуетов. Если вы используете цифры в виде названия ключей, цифровые роуты всплывут
+В роутинге важен порядок роуетов. Если вы используете цифры в виде названия ключей, цифровые роуты всплывут в верх объекта.
 
 ## TODO
 
