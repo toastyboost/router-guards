@@ -1,12 +1,13 @@
-# 🚥 Router guards for RBAC realization in react-router
+# 🚥 Guards realization for RBAC in react-router
 
-Package provides methods that allowing you to perform complex logic between the call for navigation and the final render of a routes.
+Package provides methods that allowing you to perform complex logic (RBAC) between 
+the call for navigation and the final render of a routes.
 
 [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://toastyboost.github.io/router-guards/)
 
 ## Install
 
-`npm i router-guards`
+`npm i router-guards`  
 `yarn add router-guards`
 
 ## Usage
