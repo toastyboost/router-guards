@@ -18,6 +18,7 @@ export const ROUTES_ARRAY = [
     guards: [onlyAnon()],
   },
   {
+    name: 'Login',
     path: '/login',
     component: LoginPage,
     guards: [onlyAnon()],
@@ -35,7 +36,7 @@ export const ROUTES_ARRAY = [
     guards: [onlyUsers(), onlyFor(['admin'])],
   },
   {
-    name: 'NotFound',
+    name: '404',
     path: '*',
     component: NotFound,
   },

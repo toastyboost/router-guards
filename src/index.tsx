@@ -67,7 +67,6 @@ function compileSubroute<C>(config: Route<C>[]): Route<C>[] {
       const subRoutes = compileSubroute(route.routes);
 
       for (const subRoute of subRoutes) {
-        console.log('subRoute', subRoute);
         plainConfig.push({
           ...subRoute,
           name: subRoute.name || subRoute.component.name,
@@ -86,6 +85,10 @@ function compileSubroute<C>(config: Route<C>[]): Route<C>[] {
   return plainConfig;
 }
 
+function isRoute<C>(route: any): route is C {
+  return Boolean(route)
+}
+
 export function renderRoutes<Ctx>(
   config: Route<Ctx>[] | ObjectRoutes<Ctx>,
   context: Ctx,
@@ -95,11 +98,12 @@ export function renderRoutes<Ctx>(
 
   return routes
     .map((route) => compileGuard(route, context))
-    .filter((item) => Boolean(item))
-    .map((route) => ({
+    .filter<Route<Ctx>>(isRoute)
+    .map((route: Route<Ctx>) => ({
       name: route.name || route.component.name,
       path: route.path,
       component: route.component,
       exact: true,
     }));
 }
+

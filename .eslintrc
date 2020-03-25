@@ -17,7 +17,10 @@
     "createDefaultProgram": true,
     "tsconfigRootDir": "./"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
   "settings": {
     "react": {
       "version": "detect"
@@ -26,7 +29,15 @@
   "rules": {
     "import/extensions": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
     "react/prop-types": "off",
     "react/display-name": "off"
   }

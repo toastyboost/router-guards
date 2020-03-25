@@ -6,25 +6,43 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
+    "noEmit": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "es6",
-    "strictNullChecks": false,
-    "baseUrl": "./",
-    "typeRoots": ["./node_modules/@types"],
     "declaration": true,
     "declarationDir": "./dist",
+    "baseUrl": "./",
     "outDir": "./dist",
-    "rootDirs": ["src", "stories"],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
     "paths": {
-      "@root/*": ["src/*"],
-      "@lib/*": ["lib/*"]
-    }
+      "@root/*": [
+        "src/*"
+      ],
+      "@lib/*": [
+        "lib/*"
+      ]
+    },
   },
-  "exclude": ["./node_modules", "./dist"],
-  "include": ["./src"]
+  "exclude": [
+    "./node_modules",
+    "./dist",
+    "./stories",
+    "./lib"
+  ],
+  "include": [
+    "src"
+  ]
 }

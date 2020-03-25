@@ -1,6 +1,7 @@
 {
   "name": "router-guards",
-  "version": "0.0.6",
+  "description": "🚥 • Router guards for RBAC realization in react-router",
+  "version": "0.0.7",
   "main": "./dist/index",
   "files": [
     "dist"
@@ -38,7 +39,7 @@
     "eslint": "^6.6.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.17.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.2",
     "react-docgen-typescript-loader": "^3.6.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.1.2",

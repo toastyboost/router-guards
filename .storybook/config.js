@@ -6,8 +6,6 @@ import { configureActions } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
 import { withConsole } from '@storybook/addon-console';
 
-import { themes } from '@storybook/theming';
-
 import StoryRouter from 'storybook-react-router';
 
 import { Styles } from './layout/styles';
@@ -17,7 +15,6 @@ addParameters({
   options: {
     showPanel: true,
     panelPosition: 'right',
-    theme: themes.dark,
   },
 });
 
