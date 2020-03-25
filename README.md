@@ -11,9 +11,8 @@ Package provides methods that allowing you to perform complex logic (Role Based 
 
 ## Usage
 
-```
 ~ app.js
-
+```
 import { renderRoutes } from 'router-guards';
 import { ROUTES } from './routes';
 
@@ -25,10 +24,9 @@ const Routing = () => {
 }
 
 ```
- 
-```
-~ routes.js
 
+ ~ routes.js
+```
 import { onlyAnon, onlyFor } from './guards';
 
 export const ROUTES = [
@@ -45,9 +43,8 @@ export const ROUTES = [
 ];
 ```
 
-```
 ~ guards.js
-
+```
 import { Guard } from 'router-guards';
 
 type SessionProps = {
@@ -59,7 +56,7 @@ export function onlyAnon(): Guard<SessionProps> {
 }
 
 export function onlyUsers(): Guard<SessionProps> {
-  return (route, context) => (context && context.role ? route : null);
+  return (route, context) => (context && context.role === 'admin' ? route : null);
 }
 ```
 
