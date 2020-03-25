@@ -1,4 +1,4 @@
-# 🚥 Guards realization for RBAC in react-router
+# 🚥 Guards Role Based Access Control (RBAC) for React Router
 
 Package provides methods that allowing you to perform complex logic (RBAC) between  
 the call for navigation and the final render of a routes.
