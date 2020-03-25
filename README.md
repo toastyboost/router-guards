@@ -1,7 +1,6 @@
 # 🚥 Guards role based access control for React Router
 
-Package provides methods that allowing you to perform complex logic (RBAC) between  
-the call for navigation and the final render of a routes.
+Package provides methods that allowing you to perform complex logic (RBAC) between the call for navigation and the final render of a routes.
 
 [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://toastyboost.github.io/router-guards/)
 
