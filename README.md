@@ -56,7 +56,7 @@ export function onlyAnon(): Guard<SessionProps> {
 }
 
 export function onlyUsers(): Guard<SessionProps> {
-  return (route, context) => (context && context.role === 'admin' ? route : null);
+  return (route, context) => (context && context.role ? route : null);
 }
 ```
 
