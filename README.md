@@ -11,6 +11,23 @@ Package provides methods that allowing you to perform complex logic (Role Based 
 
 ## Usage
 
+~ guards.js
+```
+import { Guard } from 'router-guards';
+
+type SessionProps = {
+  role: 'admin' | null;
+};
+
+export function onlyAnon(): Guard<SessionProps> {
+  return (route, context) => (context && context.role ? null : route);
+}
+
+export function onlyUsers(): Guard<SessionProps> {
+  return (route, context) => (context && context.role ? route : null);
+}
+```
+
  ~ routes.js
 ```
 import { onlyAnon, onlyFor } from './guards';
@@ -41,23 +58,6 @@ const Routing = () => {
   return currentRoutes;
 }
 
-```
-
-~ guards.js
-```
-import { Guard } from 'router-guards';
-
-type SessionProps = {
-  role: 'admin' | null;
-};
-
-export function onlyAnon(): Guard<SessionProps> {
-  return (route, context) => (context && context.role ? null : route);
-}
-
-export function onlyUsers(): Guard<SessionProps> {
-  return (route, context) => (context && context.role ? route : null);
-}
 ```
 
 ## Features
