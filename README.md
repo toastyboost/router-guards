@@ -11,20 +11,6 @@ Package provides methods that allowing you to perform complex logic (Role Based 
 
 ## Usage
 
-~ app.js
-```
-import { renderRoutes } from 'router-guards';
-import { ROUTES } from './routes';
-
-const Routing = () => {
-  const session = { name: 'Alex', role: 'admin' };
-  const currentRoutes = renderRoutes(ROUTES, session);
-
-  return currentRoutes;
-}
-
-```
-
  ~ routes.js
 ```
 import { onlyAnon, onlyFor } from './guards';
@@ -41,6 +27,20 @@ export const ROUTES = [
     guards: [onlyUsers(), onlyFor(['admin'])],
   },
 ];
+```
+
+~ app.js
+```
+import { renderRoutes } from 'router-guards';
+import { ROUTES } from './routes';
+
+const Routing = () => {
+  const session = { name: 'Alex', role: 'admin' };
+  const currentRoutes = renderRoutes(ROUTES, session);
+
+  return currentRoutes;
+}
+
 ```
 
 ~ guards.js
